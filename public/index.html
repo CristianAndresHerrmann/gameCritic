@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Critic - Gestión de Videojuegos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Game Critic</h1>
+            <p>Gestión de videojuegos</p>
+        </header>
+
+        <main>
+            <!-- Formulario para agregar/editar videojuegos -->
+            <section class="form-section">
+                <h2 id="form-title">Agregar Videojuego</h2>
+                <form id="game-form">
+                    <div class="form-group">
+                        <label for="title">Título *</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="genre">Género *</label>
+                            <input type="text" id="genre" name="genre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="platform">Plataforma *</label>
+                            <input type="text" id="platform" name="platform" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="releaseYear">Año de Lanzamiento *</label>
+                            <input type="number" id="releaseYear" name="releaseYear" min="1970" max="2030" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Calificación (0-10)</label>
+                            <input type="number" id="rating" name="rating" min="0" max="10" step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descripción</label>
+                        <textarea id="description" name="description" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn">Agregar Videojuego</button>
+                        <button type="button" id="cancel-btn" style="display: none;">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Lista de videojuegos -->
+            <section class="games-section">
+                <div class="section-header">
+                    <h2>Lista de Videojuegos</h2>
+                    <button id="refresh-btn" class="refresh-btn">🔄 Actualizar</button>
+                </div>
+
+                <div id="loading" class="loading">Cargando videojuegos...</div>
+                <div id="error-message" class="error-message" style="display: none;"></div>
+
+                <div id="games-grid" class="games-grid">
+                    <!-- Los videojuegos se cargarán dinámicamente aquí -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="confirm-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Confirmar eliminación</h3>
+            <p id="confirm-message">¿Estás seguro de que quieres eliminar este videojuego?</p>
+            <div class="modal-actions">
+                <button id="confirm-yes" class="btn-danger">Sí, eliminar</button>
+                <button id="confirm-no" class="btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
